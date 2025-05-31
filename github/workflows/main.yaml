@@ -33,3 +33,11 @@ jobs:
         uses: cypress-io/github-action@v6
         with:
           runTests: true
+
+      - name: 📂 Sync files
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+        server: ${{ secrets.HOST }}
+        username: ${{ secrets.LOGIN }}
+        password: ${{ secrets.PASSWORD }}
+        local-dir: ${{ secrets.DIRECTORY }}
